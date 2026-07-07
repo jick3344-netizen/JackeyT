@@ -122,7 +122,9 @@ Each new diagnosis stores a snapshot of the questionnaire and report configurati
 
 ## License
 
-No license has been added yet. Add a license before encouraging external reuse or contributions.
+This project is released under the [MIT License](./LICENSE).
+
+You may use, modify, distribute, and build upon this project, including for commercial purposes, as long as the original copyright and license notice are retained.
 
 ---
 
@@ -250,4 +252,6 @@ Netlify Blobs 用于保存用户、邀请码、诊断记录、生成报告、内
 
 ## License
 
-目前还没有添加开源许可证。如果希望别人正式复用或参与贡献，建议后续补充许可证。
+本项目使用 [MIT License](./LICENSE) 开源。
+
+你可以使用、修改、分发，也可以用于商业项目，但需要保留原始版权声明和许可证说明。

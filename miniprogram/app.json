@@ -1,0 +1,19 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/dashboard/index",
+    "pages/type-select/index",
+    "pages/questionnaire/index",
+    "pages/loading/index",
+    "pages/report/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "老黄的品牌三问",
+    "navigationBarBackgroundColor": "#faf8f2",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f4f1e9",
+    "backgroundTextStyle": "light"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

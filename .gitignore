@@ -1,0 +1,12 @@
+data/store.json
+data/store.json.tmp
+.DS_Store
+.netlify
+node_modules
+.env
+.env.*
+!.env.example
+public/assets/*.png
+public/assets/*.jpg
+public/assets/*.jpeg
+xianyu-launch-pack/

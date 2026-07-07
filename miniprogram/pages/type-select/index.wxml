@@ -1,0 +1,17 @@
+<view class="page">
+  <view class="eyebrow">开始新诊断</view>
+  <view class="title">你希望诊断<br/>哪一种品牌？</view>
+  <view class="copy intro">个人品牌与企业品牌使用不同问题，但都围绕定位、价值和信任形成判断。</view>
+  <view class="type-card card">
+    <view class="tag">PERSONAL BRAND</view>
+    <view class="type-title">个人品牌</view>
+    <view class="copy">适合创始人、专家、顾问、讲师、内容创作者，以及希望建立职业影响力的专业人士。</view>
+    <button class="button button-primary" loading="{{creating}}" disabled="{{creating}}" data-type="personal" bindtap="select">选择个人品牌</button>
+  </view>
+  <view class="type-card card corporate">
+    <view class="tag">CORPORATE BRAND</view>
+    <view class="type-title">企业品牌</view>
+    <view class="copy">适合初创企业、成长型企业、新业务、新产品，以及正在进行品牌升级的成熟企业。</view>
+    <button class="button button-primary" loading="{{creating}}" disabled="{{creating}}" data-type="corporate" bindtap="select">选择企业品牌</button>
+  </view>
+</view>

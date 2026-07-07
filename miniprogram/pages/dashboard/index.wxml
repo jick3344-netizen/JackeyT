@@ -1,0 +1,18 @@
+<view class="page">
+  <view class="eyebrow">我的工作台</view>
+  <view class="title">{{user.displayName || '你好'}}，<br/>欢迎回来。</view>
+  <view class="copy intro">在这里查看已有报告，或开始一次新的品牌诊断。</view>
+  <button class="button button-primary" bindtap="create">开始新诊断 ＋</button>
+  <view class="section-title">最近报告</view>
+  <view wx:if="{{loading}}" class="empty">正在加载…</view>
+  <view wx:elif="{{!diagnoses.length}}" class="empty card">暂时还没有诊断记录。</view>
+  <view wx:else class="diagnosis-list">
+    <view wx:for="{{diagnoses}}" wx:key="id" class="diagnosis card">
+      <view class="tag">{{item.type === 'personal' ? '个人品牌' : '企业品牌'}} · {{item.status === 'completed' ? '报告已完成' : item.status === 'generating' ? '报告生成中' : '填写中'}}</view>
+      <view class="diagnosis-row"><view><view class="diagnosis-name">{{item.name}}</view><view class="copy">更新于 {{item.updatedAt}}</view></view><view wx:if="{{item.status === 'completed'}}" class="score">{{item.report.overallScore}}</view></view>
+      <button wx:if="{{item.status === 'completed'}}" class="button button-secondary diagnosis-button" data-id="{{item.id}}" bindtap="openReport">查看完整报告</button>
+      <view wx:elif="{{item.status === 'generating'}}" class="pending">报告正在生成，稍后刷新即可领取。</view>
+      <view wx:else class="pending">问卷尚未完成，请在网页端继续填写。</view>
+    </view>
+  </view>
+</view>

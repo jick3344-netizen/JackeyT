@@ -1,0 +1,19 @@
+{
+  "name": "laohuang-brand-three-questions",
+  "version": "0.1.0",
+  "private": true,
+  "description": "老黄的品牌三问 - 品牌战略诊断工具视觉原型",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "netlify dev",
+    "check": "node --check server.js && node --check public/app.js && node --check public/questions.js"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^10.0.0",
+    "@netlify/functions": "^5.0.0"
+  },
+  "devDependencies": {
+    "netlify-cli": "^23.0.0",
+    "typescript": "^5.9.0"
+  }
+}

@@ -1,0 +1,7 @@
+data/
+.git/
+.env
+.env.*
+*.log
+PRODUCT_FRAMEWORK.md
+LOW_FIDELITY_PROTOTYPE.md

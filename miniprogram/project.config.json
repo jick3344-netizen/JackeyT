@@ -1,0 +1,12 @@
+{
+  "miniprogramRoot": "./",
+  "projectname": "laohuang-brand-three-questions",
+  "description": "老黄的品牌三问小程序",
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "postcss": true,
+    "minified": true
+  },
+  "compileType": "miniprogram"
+}

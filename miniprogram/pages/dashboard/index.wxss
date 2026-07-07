@@ -1,0 +1,9 @@
+.intro { margin: 24rpx 0 34rpx; }
+.section-title { margin: 62rpx 0 20rpx; font-size: 38rpx; font-weight: 600; }
+.diagnosis-list { display: grid; gap: 18rpx; }
+.diagnosis { padding: 28rpx; }
+.diagnosis-row { display: flex; justify-content: space-between; gap: 20rpx; margin: 18rpx 0; }
+.diagnosis-name { font-size: 34rpx; font-weight: 600; }
+.score { color: #8b332a; font-size: 62rpx; font-weight: 600; line-height: 1; }
+.diagnosis-button { margin-top: 16rpx; }
+.pending { color: #747268; font-size: 24rpx; }

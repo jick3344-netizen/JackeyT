@@ -1,0 +1,7 @@
+.loading-page { display: flex; align-items: center; min-height: 100vh; }
+.loading-card { width: 100%; padding: 44rpx 34rpx; }
+.loading-copy { margin: 26rpx 0; line-height: 1.85; }
+.loading-list { margin: 32rpx 0; border-top: 1rpx solid #d7d1c4; }
+.loading-list view { display: flex; justify-content: space-between; padding: 19rpx 0; border-bottom: 1rpx solid #d7d1c4; font-size: 26rpx; }
+.loading-list text:last-child { color: #8b332a; }
+.dashboard-button { margin-top: 16rpx; }

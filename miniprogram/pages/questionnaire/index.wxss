@@ -1,0 +1,19 @@
+.progress { height: 6rpx; overflow: hidden; background: #ebe6db; }
+.progress-fill { height: 100%; background: #8b332a; }
+.progress-copy { margin: 12rpx 0 48rpx; color: #747268; font-size: 22rpx; text-align: right; }
+.notice { margin-bottom: 38rpx; border-left: 5rpx solid #8b332a; padding: 18rpx 20rpx; background: #ebe6db; color: #747268; font-size: 23rpx; line-height: 1.8; }
+.notice text { color: #262621; font-weight: 600; }
+.question-title { font-size: 48rpx; font-weight: 600; line-height: 1.35; }
+.question-help { margin-top: 16rpx; color: #747268; font-size: 26rpx; }
+.answer-area { margin-top: 44rpx; }
+.triple-list { display: grid; gap: 16rpx; }
+.triple { min-height: 144rpx; }
+.option-list { display: grid; gap: 14rpx; }
+.option { min-height: 90rpx; padding: 18rpx 24rpx; border: 1rpx solid #d7d1c4; border-radius: 4rpx; background: #fffdf8; color: #262621; font-size: 28rpx; text-align: left; }
+.option.selected { border-color: #8b332a; background: #f7efec; color: #8b332a; }
+.scale-list { display: flex; gap: 10rpx; }
+.scale { flex: 1; min-height: 132rpx; padding: 12rpx 4rpx; border: 1rpx solid #d7d1c4; background: #fffdf8; color: #747268; font-size: 19rpx; }
+.scale text { display: block; margin-bottom: 7rpx; color: #262621; font-size: 32rpx; font-weight: 600; }
+.scale.selected { color: #fffdf8; border-color: #68705a; background: #68705a; }
+.scale.selected text { color: #fffdf8; }
+.question-actions { display: grid; grid-template-columns: 1fr 1.25fr; gap: 18rpx; margin-top: 58rpx; }

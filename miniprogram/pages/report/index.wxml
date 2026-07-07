@@ -1,0 +1,20 @@
+<view class="page report-page">
+  <view wx:if="{{loading}}" class="empty">正在加载报告…</view>
+  <block wx:elif="{{report}}">
+    <view class="eyebrow">品牌诊断报告</view>
+    <view class="title">{{diagnosis.name}}</view>
+    <view class="report-date">{{diagnosis.type === 'personal' ? '个人品牌诊断' : '企业品牌诊断'}} · {{diagnosis.updatedAt}}</view>
+    <view class="score-card"><view><text class="score-number">{{report.overallScore}}</text><text class="score-total"> / 100</text></view><view class="score-level">{{report.level}}</view></view>
+    <view class="summary card"><view class="section-kicker">01 / 执行摘要</view><view class="section-title">当前判断</view><view class="summary-copy">{{report.summary}}</view></view>
+    <view class="section"><view class="section-kicker">02 / 三维评分</view>
+      <view class="dimension card"><view><text>品牌定位</text><text>{{report.dimensions.positioning.score}} / 35</text></view><view class="dimension-status">{{report.dimensions.positioning.status}}</view><view>{{report.dimensions.positioning.diagnosis}}</view></view>
+      <view class="dimension card"><view><text>品牌价值</text><text>{{report.dimensions.value.score}} / 35</text></view><view class="dimension-status">{{report.dimensions.value.status}}</view><view>{{report.dimensions.value.diagnosis}}</view></view>
+      <view class="dimension card"><view><text>品牌信任状</text><text>{{report.dimensions.trust.score}} / 30</text></view><view class="dimension-status">{{report.dimensions.trust.status}}</view><view>{{report.dimensions.trust.diagnosis}}</view></view>
+    </view>
+    <view class="section"><view class="section-kicker">03 / 优先议题</view><view wx:for="{{report.priorityIssues}}" wx:key="title" class="issue card"><view class="tag">{{item.dimension}} · {{item.urgency}}优先级</view><view class="issue-title">{{item.title}}</view><view class="copy">{{item.description}}</view></view></view>
+    <view class="section"><view class="section-kicker">04 / 信任资料</view><view wx:for="{{report.evidenceToCollect}}" wx:key="title" class="issue card"><view class="issue-title">{{item.title}}</view><view class="copy">{{item.purpose}}</view><view class="example">例如：{{item.example}}</view></view></view>
+    <view class="section"><view class="section-kicker">05 / 品牌表达</view><view class="suggestion card"><text>建议的一句话定位</text><view>{{report.positioningStatement}}</view></view><view class="suggestion card"><text>建议的核心价值主张</text><view>{{report.valueProposition}}</view></view><view class="suggestion card"><text>信任建设重点</text><view>{{report.trustPlan}}</view></view></view>
+    <view class="section"><view class="section-kicker">06 / 未来 90 天行动</view><view wx:for="{{report.actionPlan}}" wx:key="title" class="action card"><view class="tag">{{item.period}} · {{item.priority}}优先级</view><view class="issue-title">{{item.title}}</view><view class="copy">{{item.detail}}</view></view></view>
+    <view class="report-footer"><view>需要进一步解读报告？</view><text>可在网站中登记 1 对 1 咨询意向。</text><button class="button button-secondary" bindtap="dashboard">返回工作台</button></view>
+  </block>
+</view>

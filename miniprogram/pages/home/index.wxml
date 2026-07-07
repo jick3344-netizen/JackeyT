@@ -1,0 +1,17 @@
+<view class="page home">
+  <view class="hero-mark"><view></view><view></view><view></view></view>
+  <view class="eyebrow">品牌战略诊断工具</view>
+  <view class="title">看清你的品牌，<br/>从三个问题开始。</view>
+  <view class="copy intro">你是谁？为什么选择你？为什么相信你？用一次初步诊断，整理品牌当前最值得关注的问题。</view>
+  <view class="three-questions card">
+    <view><text>01 / 定位</text><view class="question-main">你是谁？</view></view>
+    <view><text>02 / 价值</text><view class="question-main">为什么选择你？</view></view>
+    <view><text>03 / 信任</text><view class="question-main">为什么相信你？</view></view>
+  </view>
+  <view class="login card">
+    <view class="login-title">微信登录后开始诊断</view>
+    <view class="copy login-copy">无需填写邀请码。登录仅用于保存你的问卷进度、领取报告，以及便于后续查看历史记录。</view>
+    <button class="button button-primary" loading="{{submitting}}" disabled="{{submitting}}" bindtap="login">微信登录并进入</button>
+  </view>
+  <view class="privacy">你提供的信息将被严格保密，仅用于本次诊断与经你同意的后续服务。</view>
+</view>

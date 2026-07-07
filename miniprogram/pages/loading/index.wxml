@@ -1,0 +1,10 @@
+<view class="page loading-page">
+  <view class="loading-card card">
+    <view class="eyebrow">报告生成中</view>
+    <view class="title">正在形成你的<br/>品牌诊断。</view>
+    <view class="copy loading-copy">报告通常需要 1 至 3 分钟。你可以稍后刷新工作台领取，也可以在这里查看是否已完成。</view>
+    <view class="loading-list"><view><text>梳理品牌定位</text><text>进行中</text></view><view><text>核对价值表达</text><text>等待中</text></view><view><text>检查信任证据</text><text>等待中</text></view><view><text>形成完整报告</text><text>等待中</text></view></view>
+    <button class="button button-primary" loading="{{checking}}" disabled="{{checking}}" bindtap="checkReport">查看是否已完成</button>
+    <button class="button button-secondary dashboard-button" bindtap="dashboard">稍后前往工作台</button>
+  </view>
+</view>

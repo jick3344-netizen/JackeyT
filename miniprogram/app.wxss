@@ -1,0 +1,16 @@
+page { min-height: 100%; color: #262621; background: #f4f1e9; font-family: "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 30rpx; line-height: 1.65; }
+button { margin: 0; padding: 0; border: 0; background: transparent; line-height: inherit; }
+button::after { border: 0; }
+.page { min-height: 100vh; padding: 56rpx 40rpx 72rpx; box-sizing: border-box; }
+.eyebrow { margin-bottom: 18rpx; color: #8b332a; font-size: 20rpx; font-weight: 700; letter-spacing: 4rpx; }
+.title { margin: 0; font-size: 56rpx; font-weight: 600; line-height: 1.25; }
+.copy { color: #747268; font-size: 28rpx; }
+.button { min-height: 88rpx; display: flex; align-items: center; justify-content: center; padding: 0 34rpx; border: 1rpx solid #262621; border-radius: 4rpx; box-sizing: border-box; font-size: 28rpx; font-weight: 600; }
+.button-primary { color: #fffdf8; border-color: #8b332a; background: #8b332a; }
+.button-secondary { border-color: #d7d1c4; background: #faf8f2; }
+.button[disabled] { opacity: .45; }
+.card { border: 1rpx solid #d7d1c4; border-radius: 4rpx; padding: 32rpx; background: #faf8f2; }
+.input { width: 100%; min-height: 92rpx; border: 1rpx solid #d7d1c4; border-radius: 4rpx; padding: 0 24rpx; box-sizing: border-box; background: #fffdf8; font-size: 30rpx; }
+.textarea { width: 100%; min-height: 180rpx; border: 1rpx solid #d7d1c4; border-radius: 4rpx; padding: 22rpx 24rpx; box-sizing: border-box; background: #fffdf8; font-size: 30rpx; line-height: 1.65; }
+.tag { display: inline-block; padding: 6rpx 12rpx; color: #68705a; background: #e4e8dd; font-size: 20rpx; }
+.empty { padding: 60rpx 20rpx; color: #747268; text-align: center; }

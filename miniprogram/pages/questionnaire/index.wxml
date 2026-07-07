@@ -1,0 +1,22 @@
+<view class="page questionnaire">
+  <view class="progress"><view class="progress-fill" style="width: {{((index + 1) / questions.length) * 100}}%;"></view></view>
+  <view class="progress-copy">{{index + 1}} / {{questions.length}}</view>
+  <view class="notice"><text>请认真填写。</text> 信息越具体、真实，诊断结论越有帮助。所有信息将被严格保密，仅用于本次诊断与经你同意的后续服务。</view>
+  <view class="eyebrow">{{question.kicker}}</view>
+  <view class="question-title">{{question.title}}</view>
+  <view class="question-help">{{question.help}}</view>
+  <view class="answer-area">
+    <input wx:if="{{question.type === 'text' || question.type === 'email'}}" class="input" placeholder="{{question.placeholder}}" value="{{answer}}" bindinput="onTextInput" />
+    <textarea wx:elif="{{question.type === 'textarea'}}" class="textarea" placeholder="{{question.placeholder}}" value="{{answer}}" bindinput="onTextInput" />
+    <view wx:elif="{{question.type === 'triple'}}" class="triple-list">
+      <textarea wx:for="{{answer}}" wx:key="index" class="textarea triple" data-index="{{index}}" placeholder="{{index === 0 ? question.firstPlaceholder : '选填'}}" value="{{item}}" bindinput="onTripleInput" />
+    </view>
+    <view wx:elif="{{question.type === 'single'}}" class="option-list">
+      <button wx:for="{{question.options}}" wx:key="item" class="option {{answer === item ? 'selected' : ''}}" data-value="{{item}}" bindtap="choose">{{item}}</button>
+    </view>
+    <view wx:elif="{{question.type === 'scale'}}" class="scale-list">
+      <button wx:for="{{question.scaleLabels}}" wx:key="index" class="scale {{answer === index + 1 ? 'selected' : ''}}" data-value="{{index + 1}}" bindtap="chooseScale"><text>{{index + 1}}</text><view>{{item}}</view></button>
+    </view>
+  </view>
+  <view class="question-actions"><button class="button button-secondary" disabled="{{index === 0 || saving}}" bindtap="previous">上一步</button><button class="button button-primary" loading="{{saving}}" disabled="{{saving}}" bindtap="next">{{index === questions.length - 1 ? '提交并生成报告' : '继续'}} ›</button></view>
+</view>

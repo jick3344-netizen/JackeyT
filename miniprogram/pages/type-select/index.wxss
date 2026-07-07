@@ -1,0 +1,5 @@
+.intro { margin: 28rpx 0 42rpx; }
+.type-card { margin-bottom: 20rpx; padding: 34rpx; }
+.type-title { margin: 25rpx 0 13rpx; font-size: 44rpx; font-weight: 600; }
+.type-card .button { margin-top: 32rpx; }
+.corporate { background: #f8f5ee; }

@@ -1,0 +1,16 @@
+.home { padding-top: 82rpx; }
+.hero-mark { display: flex; gap: 12rpx; margin-bottom: 42rpx; }
+.hero-mark view { width: 24rpx; height: 24rpx; border-radius: 50%; background: #8b332a; }
+.hero-mark view:nth-child(2) { background: #68705a; }
+.hero-mark view:nth-child(3) { background: #b29d7e; }
+.intro { margin: 30rpx 0 44rpx; line-height: 1.9; }
+.three-questions { margin-bottom: 34rpx; padding: 12rpx 32rpx; box-shadow: 12rpx 12rpx 0 #e7e0d3; }
+.three-questions view { padding: 24rpx 0; border-bottom: 1rpx solid #d7d1c4; }
+.three-questions view:last-child { border-bottom: 0; }
+.three-questions text { display: block; color: #747268; font-size: 20rpx; letter-spacing: 2rpx; }
+.question-main { margin-top: 5rpx; font-size: 34rpx; font-weight: 500; }
+.login { padding: 32rpx; }
+.login-title { margin-bottom: 18rpx; font-size: 34rpx; font-weight: 600; }
+.login-copy { margin-bottom: 22rpx; line-height: 1.8; }
+.login .button { margin-top: 18rpx; }
+.privacy { margin-top: 30rpx; color: #747268; font-size: 22rpx; line-height: 1.8; }

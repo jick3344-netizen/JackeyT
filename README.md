@@ -1,89 +1,253 @@
-# 老黄的品牌三问
+# Lao Huang's Three Brand Questions
 
-品牌战略诊断工具
+An invite-only brand strategy diagnosis tool for personal brands and company brands.
 
-AI 品牌诊断产品的前期定义与原型文件。
+The tool asks three core questions:
 
-## 当前文件
+- Who are you?
+- Why should people choose you?
+- Why should people believe you?
 
-- [产品框架 V2](./PRODUCT_FRAMEWORK.md)：产品定位、三维评分、个人与企业问卷、AI 接入、报告和权限设计。
-- [低保真原型 V1](./LOW_FIDELITY_PROTOTYPE.md)：用户旅程、页面线框、问卷交互、异常状态和响应式规则。
+Based on the answers, it generates a structured brand diagnosis report covering positioning, value, and trust signals. The product includes a public-facing website, an admin panel, Netlify Functions, Netlify Blobs storage, and a WeChat Mini Program prototype.
 
-## 当前阶段
+## What This Project Includes
 
-产品框架、页面流程、邀请权限、管理后台和 AI 报告接口已经完成，正在进入线上内测部署阶段。
+- Public landing page with invite-code access
+- Personal brand and company brand questionnaires
+- Required contact fields: name, contact method, and email
+- Report generation workflow with loading and refresh states
+- Admin dashboard for viewing submissions, answers, reports, and consultation requests
+- Content management support for homepage copy, questionnaire fields, report settings, and assets
+- Manual report revision support in the admin workflow
+- Netlify Functions API
+- Netlify Blobs based storage for production
+- Local JSON storage for development
+- WeChat Mini Program front-end prototype
 
-## 查看视觉原型
+## Open Source Version
+
+This repository is a cleaned open-source version.
+
+Personal QR codes, private user data, generated marketing assets, and local storage files are not included. The homepage image and contact QR code use SVG placeholders. Replace them in the admin panel or through your own deployed assets.
+
+Do not commit real API keys, private invite codes, user submissions, or contact data.
+
+## Tech Stack
+
+- Vanilla HTML, CSS, and JavaScript
+- Node.js local development server
+- Netlify Functions
+- Netlify Blobs
+- MiniMax report generation support
+- Optional OpenAI-compatible report generation paths in the older local server
+- WeChat Mini Program pages
+
+## Quick Start
 
 ```bash
+npm install
+npm run check
 node server.js
 ```
 
-打开 [http://127.0.0.1:4188](http://127.0.0.1:4188)。
+Open:
 
-原型演示邀请码：`LAOHUANG-2026`
+```text
+http://127.0.0.1:4188
+```
 
-本地管理员邀请码：`LAOHUANG-ADMIN`
+Local demo invite code:
 
-当前可体验：首页、邀请码、工作台、诊断类型、分步问卷、生成状态、预检结果和完整报告。
+```text
+LAOHUANG-2026
+```
 
-当前基础功能已接入服务端：
+Local admin invite code:
 
-- 邀请码由服务端验证。
-- 登录状态使用 `HttpOnly` 会话 Cookie。
-- 新建诊断会生成真实诊断记录。
-- 本地开发时保存到私有数据文件；线上部署后使用 Netlify Blobs 云端存储。
-- 报告生成通过服务端接口触发。
-- 已接入 OpenAI Responses API 与结构化输出；未配置密钥时自动使用本地评分引擎。
-- 管理后台可查看联系人、问卷答案、诊断状态、报告分数和咨询意向。
-- 用户问卷中的姓名、手机号或微信号、邮箱为必填项。
-- 首页、预检页和完整报告均已接入老黄微信二维码。
+```text
+LAOHUANG-ADMIN
+```
 
-## 当前问卷
+## Environment Variables
 
-- 个人品牌：14 个核心页面，包含姓名、联系方式、邮箱三个必填项，并覆盖身份、目标对象、用户问题、差异、用户结果、核心价值、一致性、信任资产、案例和证据体系。
-- 企业品牌：15 个核心页面，包含联系人、联系方式、邮箱和品牌名称必填项，并覆盖品类、目标客户、客户问题、竞争差异、客户结果、核心价值、价值兑现、信任资产、案例和证据体系。
-- 工作台读取真实诊断记录，并支持恢复未完成问卷。
-- 报告分数由保存的答案动态计算，不再使用固定演示分数。
-
-## 启用 OpenAI
-
-服务端已经接入 OpenAI Responses API 和 Structured Outputs。部署时配置：
+Create a local `.env` file when needed. Never commit real values.
 
 ```bash
+MINIMAX_API_KEY=your_server_side_key
+MINIMAX_MODEL=MiniMax-M3
+OPENAI_API_KEY=your_server_side_key
+AI_MODEL_REPORT=gpt-5.5
+```
+
+MiniMax is the preferred report generation provider in the Netlify Functions flow. Model keys must stay on the server side only.
+
+## Netlify Deployment
+
+The project includes:
+
+```text
+netlify.toml
+netlify/functions/api.mts
+netlify/functions/report-generator-background.mts
+```
+
+Netlify uses `public/` as the publish directory and `netlify/functions/` as the Functions directory.
+
+For production, configure environment variables in Netlify:
+
+```bash
+MINIMAX_API_KEY=your_server_side_key
+MINIMAX_MODEL=MiniMax-M3
+```
+
+Netlify Blobs is used to store users, invite codes, diagnoses, generated reports, content drafts, published content versions, and uploaded assets.
+
+## Report Logic
+
+The diagnosis focuses on three dimensions:
+
+- Brand positioning: 35 points
+- Brand value: 35 points
+- Brand trust signals: 30 points
+
+Each new diagnosis stores a snapshot of the questionnaire and report configuration so that future content changes do not rewrite older submissions.
+
+## Security Notes
+
+- Keep API keys in server-side environment variables.
+- Do not store keys in front-end code.
+- Do not commit local data files.
+- Do not publish real user submissions.
+- Replace placeholder assets before using the project commercially.
+
+## License
+
+No license has been added yet. Add a license before encouraging external reuse or contributions.
+
+---
+
+# 老黄的品牌三问
+
+一个面向个人品牌和企业品牌的邀请制品牌战略诊断工具。
+
+这套工具围绕三个核心问题展开：
+
+- 你是谁？
+- 别人为什么选择你？
+- 别人凭什么相信你？
+
+用户填写问卷后，系统会围绕品牌定位、品牌价值和品牌信任状生成诊断报告。项目包含独立站前台、管理后台、Netlify Functions、Netlify Blobs 存储，以及微信小程序原型。
+
+## 项目包含什么
+
+- 邀请码访问的前台页面
+- 个人品牌和企业品牌两套问卷
+- 必填联系信息：姓名、联系方式、邮箱
+- 报告生成流程，包含等待和刷新领取状态
+- 管理后台，可查看问卷、答案、报告和咨询意向
+- 内容管理能力，可调整首页文案、问卷、报告设置和素材
+- 单份报告的人工修订入口
+- Netlify Functions 接口
+- 线上使用 Netlify Blobs 存储
+- 本地开发使用 JSON 文件存储
+- 微信小程序前端原型
+
+## 开源版说明
+
+这个仓库是整理后的开源版本。
+
+真实微信二维码、用户数据、生成图片和本地数据文件都没有放进仓库。首页主图和联系二维码使用了 SVG 占位图。你可以在后台或部署后的素材管理里替换成自己的图片。
+
+不要把真实 API 密钥、私人邀请码、用户提交内容或联系方式提交到仓库。
+
+## 技术栈
+
+- 原生 HTML、CSS、JavaScript
+- Node.js 本地开发服务
+- Netlify Functions
+- Netlify Blobs
+- MiniMax 报告生成支持
+- 旧本地服务中保留 OpenAI 兼容的报告生成路径
+- 微信小程序页面
+
+## 本地启动
+
+```bash
+npm install
+npm run check
+node server.js
+```
+
+打开：
+
+```text
+http://127.0.0.1:4188
+```
+
+本地演示邀请码：
+
+```text
+LAOHUANG-2026
+```
+
+本地管理员邀请码：
+
+```text
+LAOHUANG-ADMIN
+```
+
+## 环境变量
+
+需要时创建本地 `.env` 文件。不要提交真实值。
+
+```bash
+MINIMAX_API_KEY=你的服务端密钥
+MINIMAX_MODEL=MiniMax-M3
 OPENAI_API_KEY=你的服务端密钥
 AI_MODEL_REPORT=gpt-5.5
 ```
 
-未配置密钥时，系统自动使用本地评分引擎；模型调用失败时也会安全回退，不会丢失问卷。
+Netlify Functions 流程里优先使用 MiniMax 生成报告。模型密钥只能保存在服务端环境变量里。
 
-密钥只能放在服务端环境变量中，不能写入网页代码、提交到代码仓库或通过普通前端表单保存。
+## Netlify 部署
 
-线上部署时在 Netlify 项目的环境变量中添加以上两项；不要把真实密钥写入 `.env.example`。
+项目包含：
 
-## 启用 MiniMax
+```text
+netlify.toml
+netlify/functions/api.mts
+netlify/functions/report-generator-background.mts
+```
 
-系统支持优先使用 MiniMax。部署时配置：
+Netlify 使用 `public/` 作为发布目录，使用 `netlify/functions/` 作为函数目录。
+
+正式部署时，在 Netlify 项目环境变量里配置：
 
 ```bash
 MINIMAX_API_KEY=你的服务端密钥
 MINIMAX_MODEL=MiniMax-M3
 ```
 
-配置 MiniMax 后，系统优先调用 MiniMax；调用失败时自动回退到本地评分引擎。
+Netlify Blobs 用于保存用户、邀请码、诊断记录、生成报告、内容草稿、已发布内容版本和上传素材。
 
-官方参考：
+## 报告逻辑
 
-- [OpenAI 文本生成与 Responses API](https://developers.openai.com/api/docs/guides/text)
-- [OpenAI Structured Outputs](https://developers.openai.com/api/docs/guides/structured-outputs)
-- [OpenAI API 密钥安全建议](https://help.openai.com/en/articles/5112595-best-practices-for-api-key-safety)
+诊断围绕三个维度：
 
-## 当前默认决策
+- 品牌定位：35 分
+- 品牌价值：35 分
+- 品牌信任状：30 分
 
-- 个人品牌与企业品牌同时上线。
-- 评分权重为定位 35、价值 35、信任状 30。
-- 邀请制内测，暂不收费。
-- 内测用户可直接查看完整报告。
-- AI 报告默认直接交付，预留人工复核。
-- 正式名称为“老黄的品牌三问”，副标题为“品牌战略诊断工具”。
-- 视觉方向为简约、克制、舒适和高可读性。
+每次新建诊断时，会保存当时的问卷和报告配置快照，避免后续后台内容调整影响历史记录。
+
+## 安全说明
+
+- API 密钥只放在服务端环境变量里。
+- 不要把密钥写进前端代码。
+- 不要提交本地数据文件。
+- 不要公开真实用户提交内容。
+- 商业使用前，请替换占位素材。
+
+## License
+
+目前还没有添加开源许可证。如果希望别人正式复用或参与贡献，建议后续补充许可证。
